@@ -58,6 +58,12 @@ class PicturesController < ApplicationController
     end
   end
 
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to pictures_url
+  end
+
   private
   def picture_params
   params.require(:picture).permit(:aritst, :title, :url)
